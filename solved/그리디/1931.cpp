@@ -4,9 +4,7 @@
 #include <algorithm>
 using namespace std;
 void func();
-void func();
 vector<pair<int, int >> vecN;
-using namespace std;
 int n;
 int ans = 0;
 
