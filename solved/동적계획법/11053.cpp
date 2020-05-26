@@ -1,32 +1,27 @@
 #include<iostream>
-#include<vector>
-#include<algorithm>
 using namespace std;
-int dp[1002] = { 0, }; //dp수열
-int func(int);
+int dp[1002] = { 0, }, ans[1002] = { 0, };
+void func(int);
 int main() {
-	int n, i, ans1;
+	int temp, n, i;
 	cin >> n;
+	temp = 0;
 	for (i = 1;i <= n;i++) {
 		cin >> dp[i];
 	}
-	ans1 = func(n);
-	cout << ans1;
+	func(n);
+	for (i = 1;i <= n;i++) {
+		if (temp < ans[i])temp = ans[i];
+	}
+	cout << temp;
 	return 0;
 }
-int func(int n) {
+void func(int n) {
 	int i, j;
-	int*temp;
-	vector <int>ans;
-	ans.push_back(-987654321);
 	for (i = 1;i <= n;i++) {
-		if (dp[i] > ans.back()) {
-			ans.push_back(dp[i]);
-		}
-		else {
-			auto temp = lower_bound(ans.begin(), ans.end(), dp[i]);
-			*temp = dp[i];
+		for (j = 0;j < i;j++) {
+			if (dp[i] > dp[j] && ans[i] <= ans[j]) ans[i] = ans[j] + 1;
 		}
 	}
-	return(ans.size() - 1);
+	return;
 }
