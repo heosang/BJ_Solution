@@ -1,4 +1,4 @@
-#pragma warning(disable:4996)
+#include <iostream>
 #include <cstdio>​
 #include <algorithm>
 
@@ -9,12 +9,12 @@ int main() {
     int T;//testcase개수
     int k;//소설을 구성하는 장의 수
     int j;
-    scanf("%d",&T);
+    cin>>T;
     for(int i=0;i<T;i++){
-        int ans=0;
-        scanf("%d",&k);
+        int ans=0;   
+        cin >>k;
         for(j=1;j<=k;j++){
-            scanf("%d",&aryK[j]);
+            cin>>aryK[j];
         }
         sort(aryK+1,aryK+1+k);
         int numK=k;//합친 장의 수
@@ -27,7 +27,7 @@ int main() {
             }
             numK=j;
         }
-        printf("%d",aryK[1]);
+        cout<<aryK[1];
     }
 	return 0;
 }
